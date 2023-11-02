@@ -1,0 +1,23 @@
+---
+const pages = [
+  { name: "Programs", url: "/programs" },
+  { name: "Events", url: "/events" },
+  { name: "About Us", url: "/about-us" },
+  { name: "Get Involved", url: "/get-involved" },
+  { name: "Contact Us", url: "/contact-us" },
+];
+---
+
+<div class="navbar bg-base-100 justify-center">
+  <ul
+    class="menu menu-horizontal px-1 justify-evenly w-2/3 text-xl max-lg:w-full"
+  >
+    {
+      pages.map((page) => (
+        <li>
+          <a href={page.url}>{page.name}</a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
