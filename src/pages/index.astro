@@ -5,6 +5,8 @@ import logo from "../assets/images/logo.png";
 import Navbar from "../components/Navbar.astro";
 
 import heroImg from "../assets/images/hero.jpg";
+import dressImg from "../assets/images/dress.jpg";
+import foodImg from "../assets/images/food.jpg";
 
 import Sponsors from "../components/Sponsors";
 ---
@@ -18,8 +20,8 @@ import Sponsors from "../components/Sponsors";
     <button class="btn btn-outline w-36 max-md:w-full">Donate</button>
   </header>
   <Navbar />
-  <main>
-    <div class="flex justify-between px-10 items-center mt-20">
+  <main class="flex gap-20 flex-col mt-10">
+    <section class="flex justify-between px-10 items-center">
       <div>
         <p
           class="text-6xl leading-relaxed max-lg:leading-relaxed font-medium max-2xl:text-5xl max-lg:text-4xl"
@@ -34,9 +36,9 @@ import Sponsors from "../components/Sponsors";
         width={750}
         class="rounded-3xl max-lg:w-1/2"
       />
-    </div>
+    </section>
 
-    <div class="bg-primary p-6 mx-10 mt-20 flex flex-col items-center gap-6">
+    <section class="bg-primary p-6 mx-10 flex flex-col items-center gap-6">
       <p class="text-4xl leading-relaxed">
         The New Zealand Ethnic Women's Trust is a <b>non-profit</b> led by
         migrant and refugee women from various global regions. We aim to offer a
@@ -46,8 +48,37 @@ import Sponsors from "../components/Sponsors";
       <button class="btn btn-outline w-fit max-md:w-full"
         >Learn more about us</button
       >
-    </div>
+    </section>
 
     <Sponsors client:only="react" />
+
+    <section
+      class="w-10/12 mx-auto h-[600px] max-md:h-[400px] relative max-w-6xl"
+    >
+      <div
+        class="bg-primary absolute top-1/2 left-1/2 w-[95%] h-[95%] -translate-y-1/2 -translate-x-1/2 -z-10"
+      >
+      </div>
+      <div class="w-full h-full grid grid-cols-2 grid-rows-2">
+        <h1 class="text-7xl justify-self-center self-center">Get involved</h1>
+        <Image
+          src={foodImg}
+          alt="Food serving"
+          width={700}
+          class="w-full h-full object-cover scale-110"
+        />
+        <Image
+          src={dressImg}
+          alt="Girl in dress"
+          width={600}
+          class="w-full h-full object-cover scale-110"
+        />
+        <p class="text-2xl p-16 justify-self-center self-center">
+          Our organization thrives on the dedication of our long-standing
+          volunteers. If you're keen to leverage your skills to benefit the
+          local community, please register to volunteer with us.
+        </p>
+      </div>
+    </section>
   </main>
 </Layout>
