@@ -3,12 +3,43 @@ import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import logo from "../assets/images/logo.png";
 import Navbar from "../components/Navbar.astro";
+import Sponsors from "../components/Sponsors";
 
 import heroImg from "../assets/images/hero.jpg";
 import dressImg from "../assets/images/dress.jpg";
 import foodImg from "../assets/images/food.jpg";
 
-import Sponsors from "../components/Sponsors";
+import sewingImg from "../assets/images/sewing.jpeg";
+import businessImg from "../assets/images/business.jpg";
+import playgroupImg from "../assets/images/playgroup.jpg";
+import gardenImg from "../assets/images/garden.jpg";
+
+const programs = [
+  {
+    title: "Sewing School",
+    description:
+      "Offering free beginner and advanced sewing courses for women's skill development and employment opportunities.",
+    image: sewingImg,
+  },
+  {
+    title: "Business School",
+    description:
+      "Empowering immigrant women through skill-building and entrepreneurial ventures.",
+    image: businessImg,
+  },
+  {
+    title: "Playgroup",
+    description:
+      "Multilingual playgroup fostering early childhood development and cultural preservation.",
+    image: playgroupImg,
+  },
+  {
+    title: "Community Garden",
+    description:
+      "Cultivating sustainable living and community well-being through organic gardening for migrants and refugees.",
+    image: gardenImg,
+  },
+];
 ---
 
 <Layout title="NZ Ethnic Women's Trust">
@@ -17,8 +48,8 @@ import Sponsors from "../components/Sponsors";
   >
     <Image src={logo} alt="logo" width={500} />
 
-    <button class="btn btn-primary rounded-none text-2xl w-fit"
-      >Donate Today</button
+    <a href="" class="btn btn-primary rounded-none text-2xl w-fit"
+      >Donate Today</a
     >
   </header>
   <Navbar />
@@ -47,15 +78,18 @@ import Sponsors from "../components/Sponsors";
         secure space for women to voice their perspectives and provide services
         to enhance their skills and confidence for settling in New Zealand.
       </p>
-      <button class="btn btn-secondary rounded-none text-2xl w-fit"
-        >Learn more about us</button
+      <a href="" class="btn btn-secondary rounded-none text-2xl w-fit"
+        >Learn more about us</a
       >
     </section>
 
-    <Sponsors client:only="react" />
+    <section>
+      <h1 class="ml-10 text-5xl mb-20">Our Partners</h1>
+      <Sponsors client:only="react" />
+    </section>
 
     <section
-      class="w-10/12 mx-auto h-[600px] max-md:h-[400px] relative max-w-6xl"
+      class="w-10/12 mx-auto h-[600px] max-md:h-[400px] relative max-w-6xl max-md:max-w-none"
     >
       <div
         class="bg-primary absolute top-1/2 left-1/2 w-[95%] h-[95%] -translate-y-1/2 -translate-x-1/2 -z-10"
@@ -81,6 +115,37 @@ import Sponsors from "../components/Sponsors";
           local community, please register to volunteer with us.
         </p>
       </div>
+    </section>
+
+    <section class="flex flex-col w-full items-center">
+      <h1 class="ml-10 text-5xl mb-5 self-start">Our Programs</h1>
+      <h2 class="ml-10 text-2xl self-start">
+        We have various programs that we run year-round for the community.
+      </h2>
+      <div
+        class="grid grid-cols-2 max-md:grid-cols-1 gap-10 max-w-screen-lg mt-10"
+      >
+        {
+          programs.map((program) => (
+            <a
+              href=""
+              class="flex flex-col gap-4 hover:scale-105 hover:cursor-pointer transition w-full"
+            >
+              <Image
+                src={program.image}
+                alt={program.title}
+                width={800}
+                class="w-full object-cover aspect-square rounded-2xl"
+              />
+              <h1 class="text-2xl font-bold">{program.title}</h1>
+              <h2 class="text-xl">{program.description}</h2>
+            </a>
+          ))
+        }
+      </div>
+      <a href="" class="btn btn-primary rounded-none text-2xl w-fit mt-10"
+        >See All Our Programs</a
+      >
     </section>
   </main>
 </Layout>

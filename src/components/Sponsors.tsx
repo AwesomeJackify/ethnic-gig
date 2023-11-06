@@ -10,8 +10,7 @@ const Sponsors = () => {
     const imgWidth = 200;
 
     return (
-        <div className="flex flex-col mt-20">
-            <h1 className="ml-10 text-5xl mb-20">Our Partners</h1>
+        <div className="flex flex-col">
             <Marquee autoFill={true}>
                 <img src={skycityImg.src} className="px-8" alt="skycity" width={imgWidth} />
                 <img src={toddImg.src} className="px-8" alt="todd" width={imgWidth} />
