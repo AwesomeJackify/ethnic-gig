@@ -45,40 +45,43 @@ const programs = [
 ---
 
 <Layout title="NZ Ethnic Women's Trust">
-  <div class="flex gap-20 flex-col mt-10">
+  <div class="flex gap-16 flex-col mt-8">
     <section class="flex justify-between items-center gap-5 max-md:flex-col">
       <div>
         <p
-          class="text-5xl leading-relaxed max-lg:leading-relaxed font-medium max-2xl:text-4xl max-lg:text-3xl max-md:text-lg max-md:text-center"
+          class="text-5xl font-bold leading-relaxed max-lg:leading-relaxed max-2xl:text-4xl max-lg:text-3xl max-md:text-lg max-md:text-center"
         >
-          To provide a safe place where women can express their views freely in
-          a supportive environment.
+          Our mission is to provide a safe place where women can express their
+          views freely in a supportive environment.
         </p>
       </div>
       <Image
         src={heroImg}
         alt="hero"
         width={750}
-        class="rounded-3xl max-lg:w-96"
+        class="rounded-xl max-lg:w-96"
       />
     </section>
 
-    <section class="bg-primary p-6 flex flex-col items-center gap-6">
+    <section class="p-8 flex flex-col items-center gap-8">
       <p class="text-4xl leading-relaxed max-md:text-lg">
         The New Zealand Ethnic Women's Trust is a <b>non-profit</b> led by
         migrant and refugee women from various global regions. We aim to offer a
         secure space for women to voice their perspectives and provide services
         to enhance their skills and confidence for settling in New Zealand.
+        <br /> We offer various services such as English language classes,
+        health education and playgroup’s to promote bilingualism in our
+        community
       </p>
       <a
         href=""
-        class="btn btn-secondary rounded-none text-2xl max-md:text-lg w-fit"
+        class="btn btn-secondary mt-4 rounded-none text-2xl max-md:text-lg w-fit"
         >Learn more about us</a
       >
     </section>
 
     <section>
-      <h1 class="ml-10 text-5xl mb-20 max-md:ml-0 max-md:text-center">
+      <h1 class="ml-8 text-5xl mb-16 max-md:ml-0 max-md:text-center">
         Our Partners
       </h1>
       <Sponsors client:only="react" />
@@ -88,14 +91,14 @@ const programs = [
       class="mx-auto h-[600px] max-md:h-fit relative max-w-5xl max-md:max-w-none w-full max-md:bg-primary rounded-2xl"
     >
       <div
-        class="bg-primary absolute top-1/2 left-1/2 w-[95%] h-[95%] max-md:hidden -translate-y-1/2 -translate-x-1/2 -z-10"
+        class="absolute top-1/2 left-1/2 w-[95%] h-[95%] max-md:hidden -translate-y-1/2 -translate-x-1/2 -z-10"
       >
       </div>
       <div
         class="w-full h-full grid grid-cols-2 max-md:grid-cols-1 max-md:gap-8"
       >
         <h1
-          class="text-7xl justify-self-center self-center max-md:text-6xl max-md:justify-self-start max-md:px-2"
+          class="text-5xl justify-self-center self-center max-md:text-6xl max-md:justify-self-start max-md:px-2"
         >
           Get involved
         </h1>
@@ -123,23 +126,23 @@ const programs = [
 
     <section class="flex flex-col w-full items-center">
       <h1
-        class="ml-10 text-5xl mb-5 self-start max-md:ml-0 max-md:text-center w-full"
+        class="ml-8 text-5xl mb-4 self-start max-md:ml-0 max-md:text-center w-full"
       >
         Our Programs
       </h1>
       <h2
-        class="ml-10 text-2xl self-start max-md:ml-0 max-md:text-center max-md:text-lg"
+        class="ml-8 text-2xl self-start max-md:ml-0 max-md:text-center max-md:text-lg"
       >
         We have various programs that we run year-round for the community.
       </h2>
       <div
-        class="grid grid-cols-2 max-md:grid-cols-1 gap-10 max-w-screen-lg mt-10"
+        class="grid grid-cols-2 max-md:grid-cols-1 gap-10 max-w-screen-lg mt-8"
       >
         {
           programs.map((program) => (
             <a
               href=""
-              class="flex flex-col gap-4 hover:scale-105 max-md:hover:scale-100 hover:cursor-pointer transition w-full rounded-2xl p-5 max-md:p-3 bg-secondary"
+              class="flex flex-col gap-4 hover:scale-105 max-md:hover:scale-100 hover:cursor-pointer transition w-full rounded-2xl p-5 max-md:p-3 bg-secondary text-white"
             >
               <Image
                 src={program.image}
@@ -153,24 +156,24 @@ const programs = [
           ))
         }
       </div>
-      <a href="" class="btn btn-primary rounded-none text-2xl w-fit mt-10"
+      <a href="" class="btn btn-primary rounded-none text-2xl w-fit mt-8"
         >See All Our Programs</a
       >
     </section>
     <section>
       <h1
-        class="ml-10 text-5xl mb-5 self-start max-md:ml-0 max-md:text-center w-full"
+        class="ml-8 text-5xl mb-8 self-start max-md:ml-0 max-md:text-center w-full"
       >
         Lend a Hand, Make a Difference
       </h1>
       <h2
-        class="ml-10 text-xl self-start max-md:ml-0 max-md:text-center max-md:text-lg max-w-4xl"
+        class="ml-8 text-xl self-start max-md:ml-0 max-md:text-center max-md:text-lg max-w-4xl"
       >
         Your help is vital for our work. Volunteer your time or contribute
         financially, whatever suits you best. Every little bit counts and is
         much appreciated.
       </h2>
-      <div class="flex w-full gap-10 max-w-2xl mx-auto justify-evenly mt-10">
+      <div class="flex w-full gap-8 max-w-2xl mx-auto justify-evenly mt-8">
         <Image
           src={happyImg}
           alt="Happy"
@@ -190,7 +193,7 @@ const programs = [
           class="rounded-2xl object-cover"
         />
       </div>
-      <div class="flex justify-center gap-10 mt-10 items-center max-md:gap-5">
+      <div class="flex justify-center gap-8 mt-8 items-center max-md:gap-5">
         <a
           href=""
           class="btn btn-primary rounded-none text-4xl h-fit md:p-4 max-md:text-2xl"
