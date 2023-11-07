@@ -1,8 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import logo from "../assets/images/logo.png";
-import Navbar from "../components/Navbar.astro";
 import Sponsors from "../components/Sponsors";
 
 import heroImg from "../assets/images/hero.jpg";
@@ -13,6 +11,10 @@ import sewingImg from "../assets/images/sewing.jpeg";
 import businessImg from "../assets/images/business.jpg";
 import playgroupImg from "../assets/images/playgroup.jpg";
 import gardenImg from "../assets/images/garden.jpg";
+
+import happyImg from "../assets/images/happy.jpg";
+import helpingImg from "../assets/images/helping.jpg";
+import smilesImg from "../assets/images/smiles.jpg";
 
 const programs = [
   {
@@ -43,21 +45,11 @@ const programs = [
 ---
 
 <Layout title="NZ Ethnic Women's Trust">
-  <header
-    class="w-full flex justify-between items-center p-10 max-md:p-4 max-md:flex-col gap-6"
-  >
-    <Image src={logo} alt="logo" width={500} />
-
-    <a href="" class="btn btn-primary rounded-none text-2xl w-fit"
-      >Donate Today</a
-    >
-  </header>
-  <Navbar />
-  <main class="flex gap-20 flex-col mt-10">
-    <section class="flex justify-between px-10 items-center">
+  <div class="flex gap-20 flex-col mt-10">
+    <section class="flex justify-between items-center gap-5 max-md:flex-col">
       <div>
         <p
-          class="text-6xl leading-relaxed max-lg:leading-relaxed font-medium max-2xl:text-5xl max-lg:text-4xl"
+          class="text-5xl leading-relaxed max-lg:leading-relaxed font-medium max-2xl:text-4xl max-lg:text-3xl max-md:text-lg max-md:text-center"
         >
           To provide a safe place where women can express their views freely in
           a supportive environment.
@@ -67,49 +59,61 @@ const programs = [
         src={heroImg}
         alt="hero"
         width={750}
-        class="rounded-3xl max-lg:w-1/2"
+        class="rounded-3xl max-lg:w-96"
       />
     </section>
 
-    <section class="bg-primary p-6 mx-10 flex flex-col items-center gap-6">
-      <p class="text-4xl leading-relaxed">
+    <section class="bg-primary p-6 flex flex-col items-center gap-6">
+      <p class="text-4xl leading-relaxed max-md:text-lg">
         The New Zealand Ethnic Women's Trust is a <b>non-profit</b> led by
         migrant and refugee women from various global regions. We aim to offer a
         secure space for women to voice their perspectives and provide services
         to enhance their skills and confidence for settling in New Zealand.
       </p>
-      <a href="" class="btn btn-secondary rounded-none text-2xl w-fit"
+      <a
+        href=""
+        class="btn btn-secondary rounded-none text-2xl max-md:text-lg w-fit"
         >Learn more about us</a
       >
     </section>
 
     <section>
-      <h1 class="ml-10 text-5xl mb-20">Our Partners</h1>
+      <h1 class="ml-10 text-5xl mb-20 max-md:ml-0 max-md:text-center">
+        Our Partners
+      </h1>
       <Sponsors client:only="react" />
     </section>
 
     <section
-      class="w-10/12 mx-auto h-[600px] max-md:h-[400px] relative max-w-6xl max-md:max-w-none"
+      class="mx-auto h-[600px] max-md:h-fit relative max-w-5xl max-md:max-w-none w-full max-md:bg-primary rounded-2xl"
     >
       <div
-        class="bg-primary absolute top-1/2 left-1/2 w-[95%] h-[95%] -translate-y-1/2 -translate-x-1/2 -z-10"
+        class="bg-primary absolute top-1/2 left-1/2 w-[95%] h-[95%] max-md:hidden -translate-y-1/2 -translate-x-1/2 -z-10"
       >
       </div>
-      <div class="w-full h-full grid grid-cols-2 grid-rows-2">
-        <h1 class="text-7xl justify-self-center self-center">Get involved</h1>
+      <div
+        class="w-full h-full grid grid-cols-2 max-md:grid-cols-1 max-md:gap-8"
+      >
+        <h1
+          class="text-7xl justify-self-center self-center max-md:text-6xl max-md:justify-self-start max-md:px-2"
+        >
+          Get involved
+        </h1>
         <Image
           src={foodImg}
           alt="Food serving"
           width={700}
-          class="w-full h-full object-cover scale-110"
+          class="w-full h-full object-cover md:scale-110 max-md:row-start-1 max-md:rounded-2xl"
         />
         <Image
           src={dressImg}
           alt="Girl in dress"
           width={600}
-          class="w-full h-full object-cover scale-110"
+          class="w-full h-full object-cover md:scale-110 max-md:rounded-2xl"
         />
-        <p class="text-2xl p-16 justify-self-center self-center">
+        <p
+          class="text-2xl p-16 justify-self-center self-center max-md:text-base max-md:p-0 max-md:pb-5 max-md:px-2"
+        >
           Our organization thrives on the dedication of our long-standing
           volunteers. If you're keen to leverage your skills to benefit the
           local community, please register to volunteer with us.
@@ -118,8 +122,14 @@ const programs = [
     </section>
 
     <section class="flex flex-col w-full items-center">
-      <h1 class="ml-10 text-5xl mb-5 self-start">Our Programs</h1>
-      <h2 class="ml-10 text-2xl self-start">
+      <h1
+        class="ml-10 text-5xl mb-5 self-start max-md:ml-0 max-md:text-center w-full"
+      >
+        Our Programs
+      </h1>
+      <h2
+        class="ml-10 text-2xl self-start max-md:ml-0 max-md:text-center max-md:text-lg"
+      >
         We have various programs that we run year-round for the community.
       </h2>
       <div
@@ -129,7 +139,7 @@ const programs = [
           programs.map((program) => (
             <a
               href=""
-              class="flex flex-col gap-4 hover:scale-105 hover:cursor-pointer transition w-full"
+              class="flex flex-col gap-4 hover:scale-105 max-md:hover:scale-100 hover:cursor-pointer transition w-full rounded-2xl p-5 max-md:p-3 bg-secondary"
             >
               <Image
                 src={program.image}
@@ -137,8 +147,8 @@ const programs = [
                 width={800}
                 class="w-full object-cover aspect-square rounded-2xl"
               />
-              <h1 class="text-2xl font-bold">{program.title}</h1>
-              <h2 class="text-xl">{program.description}</h2>
+              <h1 class="text-2xl font-bold max-md:text-lg">{program.title}</h1>
+              <h2 class="text-xl max-md:text-lg">{program.description}</h2>
             </a>
           ))
         }
@@ -147,5 +157,50 @@ const programs = [
         >See All Our Programs</a
       >
     </section>
-  </main>
+    <section>
+      <h1
+        class="ml-10 text-5xl mb-5 self-start max-md:ml-0 max-md:text-center w-full"
+      >
+        Lend a Hand, Make a Difference
+      </h1>
+      <h2
+        class="ml-10 text-xl self-start max-md:ml-0 max-md:text-center max-md:text-lg max-w-4xl"
+      >
+        Your help is vital for our work. Volunteer your time or contribute
+        financially, whatever suits you best. Every little bit counts and is
+        much appreciated.
+      </h2>
+      <div class="flex w-full gap-10 max-w-2xl mx-auto justify-evenly mt-10">
+        <Image
+          src={happyImg}
+          alt="Happy"
+          width={400}
+          class="rounded-2xl object-cover max-md:hidden"
+        />
+        <Image
+          src={helpingImg}
+          alt="Helping"
+          width={400}
+          class="rounded-2xl object-cover max-md:hidden"
+        />
+        <Image
+          src={smilesImg}
+          alt="Smiles"
+          width={400}
+          class="rounded-2xl object-cover"
+        />
+      </div>
+      <div class="flex justify-center gap-10 mt-10 items-center max-md:gap-5">
+        <a
+          href=""
+          class="btn btn-primary rounded-none text-4xl max-md:text-2xl w-fit"
+          >Volunteer</a
+        ><a
+          href=""
+          class="btn btn-secondary rounded-none text-4xl max-md:text-2xl w-fit"
+          >Donate</a
+        >
+      </div>
+    </section>
+  </div>
 </Layout>
