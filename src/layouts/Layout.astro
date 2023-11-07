@@ -57,7 +57,7 @@ const socials = [
   </head>
   <body>
     <main class="max-w-screen-xl mx-auto max-md:px-4">
-      <Header pages={pages} client:idle />
+      <Header pages={pages} client:load />
       <slot />
     </main>
     <Footer pages={pages} socials={socials} />
