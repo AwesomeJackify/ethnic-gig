@@ -49,7 +49,7 @@ const programs = [
     <section class="flex justify-between items-center gap-5 max-md:flex-col">
       <div>
         <p
-          class="text-5xl font-bold leading-tight max-lg:leading-relaxed max-2xl:text-4xl max-lg:text-3xl max-md:text-lg"
+          class="text-5xl text-center max-md:w-5/6 mx-auto font-bold leading-tight max-lg:leading-relaxed max-2xl:text-4xl max-lg:text-3xl max-md:text-lg"
         >
           Our mission is to provide a safe place where women can express their
           views freely in a supportive environment.
@@ -106,7 +106,7 @@ const programs = [
           src={foodImg}
           alt="Food serving"
           width={700}
-          class="w-full h-full object-cover md:scale-110 max-md:row-start-1 rounded-2xl"
+          class="w-full h-full object-cover md:scale-110 rounded-2xl"
         />
         <Image
           src={dressImg}
@@ -115,7 +115,7 @@ const programs = [
           class="w-full h-full object-cover md:scale-110 rounded-2xl"
         />
         <p
-          class="text-2xl p-16 justify-self-center self-center max-md:text-base max-md:p-0 max-md:pb-5 max-md:px-2"
+          class="text-2xl p-16 justify-self-center self-center max-md:text-base max-md:row-start-3 max-md:p-0 max-md:px-2"
         >
           Our organization thrives on the dedication of our long-standing
           volunteers. If you're keen to leverage your skills to benefit the
@@ -136,7 +136,7 @@ const programs = [
         Our Programs
       </h1>
       <h2
-        class="ml-8 text-2xl self-start max-md:ml-0 max-md:text-center max-md:text-lg"
+        class="ml-8 text-2xl self-start w-full max-md:ml-0 max-md:text-center max-md:text-lg"
       >
         We have various programs that we run year-round for the community.
       </h2>
@@ -151,7 +151,6 @@ const programs = [
                 class="card w-full md:w-96 bg-base-100 shadow-xl hover:scale-105 max-md:hover:scale-100 hover:cursor-pointer transition"
               >
                 <figure>
-                  {" "}
                   <Image
                     src={program.image}
                     alt={program.title}
@@ -188,24 +187,24 @@ const programs = [
         financially, whatever suits you best. Every little bit counts and is
         much appreciated.
       </h2>
-      <div class="flex w-full gap-8 max-w-2xl mx-auto justify-evenly mt-8">
+      <div class="grid grid-cols-3 max-md:grid-cols-1 place-items-center max-w-5xl mx-auto gap-8 mt-8">
         <Image
           src={happyImg}
           alt="Happy"
           width={400}
-          class="rounded-2xl object-cover max-lg:hidden"
+          class="rounded-2xl h-full object-cover max-md:hidden"
         />
         <Image
           src={helpingImg}
           alt="Helping"
           width={400}
-          class="rounded-2xl object-cover max-lg:hidden"
+          class="rounded-2xl h-full object-cover max-md:hidden"
         />
         <Image
           src={smilesImg}
           alt="Smiles"
           width={400}
-          class="rounded-2xl object-cover"
+          class="rounded-2xl h-full object-cover"
         />
       </div>
       <div class="flex justify-center gap-8 mt-8 items-center max-md:gap-5">
