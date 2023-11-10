@@ -49,7 +49,7 @@ const programs = [
     <section class="flex justify-between items-center gap-5 max-md:flex-col">
       <div>
         <p
-          class="text-5xl font-bold leading-relaxed max-lg:leading-relaxed max-2xl:text-4xl max-lg:text-3xl max-md:text-lg max-md:text-center"
+          class="text-5xl text-center max-md:w-5/6 mx-auto font-bold leading-tight max-lg:leading-relaxed max-2xl:text-4xl max-lg:text-3xl max-md:text-lg"
         >
           Our mission is to provide a safe place where women can express their
           views freely in a supportive environment.
@@ -64,7 +64,7 @@ const programs = [
     </section>
 
     <section class="p-8 flex flex-col items-center gap-8">
-      <p class="text-4xl leading-relaxed max-md:text-lg">
+      <p class="text-4xl leading-tight max-md:text-lg">
         The New Zealand Ethnic Women's Trust is a <b>non-profit</b> led by
         migrant and refugee women from various global regions. We aim to offer a
         secure space for women to voice their perspectives and provide services
@@ -88,7 +88,7 @@ const programs = [
     </section>
 
     <section
-      class="mx-auto h-[600px] max-md:h-fit relative max-w-5xl max-md:max-w-none w-full max-md:bg-primary rounded-2xl"
+      class="mx-auto h-[600px] max-md:h-fit relative max-w-5xl max-md:max-w-none w-full rounded-2xl"
     >
       <div
         class="absolute top-1/2 left-1/2 w-[95%] h-[95%] max-md:hidden -translate-y-1/2 -translate-x-1/2 -z-10"
@@ -106,20 +106,25 @@ const programs = [
           src={foodImg}
           alt="Food serving"
           width={700}
-          class="w-full h-full object-cover md:scale-110 max-md:row-start-1 max-md:rounded-2xl"
+          class="w-full h-full object-cover md:scale-110 rounded-2xl"
         />
         <Image
           src={dressImg}
           alt="Girl in dress"
           width={600}
-          class="w-full h-full object-cover md:scale-110 max-md:rounded-2xl"
+          class="w-full h-full object-cover md:scale-110 rounded-2xl"
         />
         <p
-          class="text-2xl p-16 justify-self-center self-center max-md:text-base max-md:p-0 max-md:pb-5 max-md:px-2"
+          class="text-2xl p-16 justify-self-center self-center max-md:text-base max-md:row-start-3 max-md:p-0 max-md:px-2"
         >
           Our organization thrives on the dedication of our long-standing
           volunteers. If you're keen to leverage your skills to benefit the
-          local community, please register to volunteer with us.
+          local community, please register to <a
+            href="/volunteer"
+            class="text-blue-500 hover:underline"
+          >
+            volunteer</a
+          > with us.
         </p>
       </div>
     </section>
@@ -131,7 +136,7 @@ const programs = [
         Our Programs
       </h1>
       <h2
-        class="ml-8 text-2xl self-start max-md:ml-0 max-md:text-center max-md:text-lg"
+        class="ml-8 text-2xl self-start w-full max-md:ml-0 max-md:text-center max-md:text-lg"
       >
         We have various programs that we run year-round for the community.
       </h2>
@@ -140,19 +145,28 @@ const programs = [
       >
         {
           programs.map((program) => (
-            <a
-              href=""
-              class="flex flex-col gap-4 hover:scale-105 max-md:hover:scale-100 hover:cursor-pointer transition w-full rounded-2xl p-5 max-md:p-3 bg-secondary text-white"
-            >
-              <Image
-                src={program.image}
-                alt={program.title}
-                width={800}
-                class="w-full object-cover aspect-square rounded-2xl"
-              />
-              <h1 class="text-2xl font-bold max-md:text-lg">{program.title}</h1>
-              <h2 class="text-xl max-md:text-lg">{program.description}</h2>
-            </a>
+            <>
+              <a
+                href=""
+                class="card w-full md:w-96 bg-base-100 shadow-xl hover:scale-105 max-md:hover:scale-100 hover:cursor-pointer transition"
+              >
+                <figure>
+                  <Image
+                    src={program.image}
+                    alt={program.title}
+                    width={400}
+                    class="h-64 object-cover"
+                  />
+                </figure>
+                <div class="card-body">
+                  <h2 class="card-title">
+                    {program.title}
+                    <div class="badge badge-secondary">NEW</div>
+                  </h2>
+                  <p>{program.description}</p>
+                </div>
+              </a>
+            </>
           ))
         }
       </div>
@@ -173,24 +187,24 @@ const programs = [
         financially, whatever suits you best. Every little bit counts and is
         much appreciated.
       </h2>
-      <div class="flex w-full gap-8 max-w-2xl mx-auto justify-evenly mt-8">
+      <div class="grid grid-cols-3 max-md:grid-cols-1 place-items-center max-w-5xl mx-auto gap-8 mt-8">
         <Image
           src={happyImg}
           alt="Happy"
           width={400}
-          class="rounded-2xl object-cover max-md:hidden"
+          class="rounded-2xl h-full object-cover max-md:hidden"
         />
         <Image
           src={helpingImg}
           alt="Helping"
           width={400}
-          class="rounded-2xl object-cover max-md:hidden"
+          class="rounded-2xl h-full object-cover max-md:hidden"
         />
         <Image
           src={smilesImg}
           alt="Smiles"
           width={400}
-          class="rounded-2xl object-cover"
+          class="rounded-2xl h-full object-cover"
         />
       </div>
       <div class="flex justify-center gap-8 mt-8 items-center max-md:gap-5">
