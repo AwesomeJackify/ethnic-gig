@@ -1,12 +1,18 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
   <div class="mt-10">
-    <!-- <h1 class="text-center text-6xl my-10">{frontmatter.title}</h1> -->
     <div class="prose mx-auto">
+      <Image
+        src={frontmatter.image}
+        alt={frontmatter.title}
+        width={400}
+        class="mx-auto rounded-2xl aspect-square object-cover"
+      />
       <slot />
     </div>
   </div>
