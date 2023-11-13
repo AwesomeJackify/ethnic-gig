@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  image: ImageMetadata;
+  title: string;
+  description: string;
+  hasBadge: boolean;
+  url: string;
+}
+
+const { image, title, description, hasBadge, url } = Astro.props;
+---
+
+<>
+  <a
+    href={url}
+    class="card w-full md:w-96 bg-base-100 shadow-xl hover:scale-105 max-md:hover:scale-100 hover:cursor-pointer transition"
+  >
+    <figure>
+      <Image src={image} alt={title} width={400} class="h-64 object-cover" />
+    </figure>
+    <div class="card-body">
+      <h2 class="card-title">
+        {title}
+        {hasBadge && <div class="badge badge-secondary">Most Popular</div>}
+      </h2>
+      <p>{description}</p>
+    </div>
+  </a>
+</>

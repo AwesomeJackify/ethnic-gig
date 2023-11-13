@@ -20,7 +20,7 @@ const Header = ({ pages }: Props) => {
                 className="w-full flex justify-between items-center p-10 max-md:p-4 max-md:flex-col gap-6"
             >
                 <div className="flex justify-between w-full items-center">
-                    <img src={logo.src} alt="logo" width={500} className="max-md:w-60" />
+                    <a href="/" className="btn btn-ghost p-4 h-fit"><img src={logo.src} alt="logo" width={500} className="max-md:w-60" /></a>
 
                     {
                         !showNav ?

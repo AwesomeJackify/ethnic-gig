@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import ProgramCard from "@components/ProgramCard.astro";
+
+const allPrograms = await getCollection("programs");
+---
+
+<Layout title="Program">
+  <h1 class="text-5xl mb-4 self-start max-md:ml-0 text-center w-full my-10">
+    Check out all our programs
+  </h1>
+  <div class="flex flex-col items-center">
+    <div
+      class="grid grid-cols-2 max-md:grid-cols-1 gap-10 max-w-screen-lg mt-8"
+    >
+      {
+        allPrograms.map((program) => (
+          <ProgramCard
+            title={program.data.title}
+            description={program.data.description}
+            image={program.data.image}
+            hasBadge={program.data.hasBadge}
+            url={`/programs/${program.slug}`}
+          />
+        ))
+      }
+    </div>
+  </div>
+</Layout>
