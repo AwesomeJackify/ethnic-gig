@@ -36,7 +36,6 @@ const upcomingEvents = allEvents.filter((event) => {
       >
         {
           upcomingEvents.map((event) => {
-            if (event.data.date > new Date().toISOString()) return null;
             return (
               <ProgramCard
                 title={event.data.title}
@@ -62,7 +61,6 @@ const upcomingEvents = allEvents.filter((event) => {
       >
         {
           pastEvents.map((event) => {
-            if (event.data.date < new Date().toISOString()) return null;
             return (
               <ProgramCard
                 title={event.data.title}
