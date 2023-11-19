@@ -15,7 +15,7 @@ const Header = ({ pages }: Props) => {
     }
 
     return (
-        <div>
+        <div className="mb-10 max-md:mb-4">
             <div
                 className="w-full flex justify-between items-center p-10 max-md:p-4 max-md:flex-col gap-6"
             >

@@ -11,7 +11,7 @@ const pages: NavItem[] = [
   { name: "Programs", url: "/programs" },
   { name: "Events", url: "/events" },
   { name: "About Us", url: "/about-us" },
-  { name: "Get Involved", url: "/get-involved" },
+  { name: "Volunteer", url: "/volunteer" },
   { name: "Contact Us", url: "/contact-us" },
 ];
 
@@ -56,7 +56,7 @@ const socials = [
     <title>{title}</title>
   </head>
   <body>
-    <main class="max-w-screen-xl mx-auto max-md:px-4">
+    <main class="max-w-screen-xl mx-auto max-md:px-4 px-10">
       <Header pages={pages} client:load />
       <slot />
     </main>
