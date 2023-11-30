@@ -1,0 +1,130 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import unityImg from "@assets/images/unity.jpeg";
+import unity2Img from "@assets/images/unity-2.jpeg";
+
+const team = [
+  {
+    name: "Fadumo Ahmed",
+    image:
+      "https://www.nzethnicwomen.org/uploads/1/9/9/7/19972005/sewing_orig.jpg",
+    role: "Founder/director",
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. At maxime laboriosam cumque voluptas, corrupti dolores.",
+  },
+  {
+    name: "Max Pratt",
+    image:
+      "https://www.nzethnicwomen.org/uploads/1/9/9/7/19972005/sewing_orig.jpg",
+    role: "Administrator",
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. At maxime laboriosam cumque voluptas, corrupti dolores.",
+  },
+  {
+    name: "Rattika Janthama",
+    image:
+      "https://www.nzethnicwomen.org/uploads/1/9/9/7/19972005/sewing_orig.jpg",
+    role: "Project Coordinator",
+    description:
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. At maxime laboriosam cumque voluptas, corrupti dolores.",
+  },
+];
+---
+
+<Layout title="About Us">
+  <div class="flex gap-20 flex-col max-md:gap-10">
+    <h1 class="text-center text-6xl max-md:text-4xl">
+      We are <span class="text-primary">unity</span>
+    </h1>
+    <div
+      class="grid grid-cols-2 items-center gap-20 max-md:gap-10 max-md:grid-cols-1"
+    >
+      <div class="flex flex-col gap-10">
+        <Image
+          src={unityImg}
+          alt="Unity Logo"
+          width={500}
+          class="rounded-2xl object-cover h-fit"
+        />
+        <Image
+          src={unity2Img}
+          alt="Unity Logo"
+          width={500}
+          class="rounded-2xl object-cover h-fit"
+        />
+      </div>
+
+      <div class="bg-primary p-8">
+        <p class="text-base-100">
+          The NZ Ethnic Women's Trust, established in 2001, is a charitable
+          society that supports women of various ethnicities, mainly from
+          Africa, South Asia, and the Middle East. A significant number of these
+          women are refugees facing challenges in integrating into New Zealand
+          society, often hindered by limited English proficiency, lack of local
+          work experience, and large family responsibilities. NZEWT provides
+          various services, including English classes, health education, and
+          playgroups to foster bilingualism, aimed at developing skills and
+          confidence for easier settlement in New Zealand. The organization is
+          primarily volunteer-run, with paid roles limited to specific service
+          providers like sewing teachers and playgroup coordinators. <br /><br
+          />New Zealand Ethnic Women's Trust began as New Zealand Somali Women
+          Association which was established due to growing need within the
+          community. Although there are Somali groups operating in the Mt
+          Roskill area, many are run by men within the community and it was
+          difficult for the women in these groups to be heard and their needs
+          taken into account. As a response to this, a women's group was set up
+          with the aim of focusing on the needs of the women within this
+          community. <br /><br />NZ Ethnic Women's Trust provides a safe place
+          where women can express their views freely in a supportive
+          environment.
+        </p>
+
+        <!-- <br /><br />Our key objectives are: -->
+
+        <!-- <ul class="list-disc ml-8">
+          <li>
+            To provide for development of physical, spiritual, intellectual and
+            emotional wellbeing of migrant and refugee women.
+          </li>
+          <li>To provide assistance for job seekers.</li>
+          <li>
+            To mediate and liaise between various communities and government
+            department agencies over matters that may arise from cultural
+            differences.
+          </li>
+          <li>
+            To establish and provide centers where those in need can attend for
+            direction, counselling, etc.
+          </li>
+        </ul> -->
+      </div>
+    </div>
+    <div class="flex gap-20 max-md:gap-10 flex-col">
+      <h1 class="text-center text-6xl max-md:text-4xl">
+        Meet our <span class="text-primary">team</span>
+      </h1>
+      <div class="grid grid-cols-3 max-w-4xl gap-10 mx-auto max-md:grid-cols-1">
+        {
+          team.map((member) => (
+            <div class="flex flex-col gap-5">
+              <Image
+                src={member.image}
+                alt={member.name}
+                width={500}
+                height={500}
+                class="object-cover aspect-square w-full self-center"
+              />
+              <div class="flex flex-col gap-2">
+                <h2 class="text-2xl">{member.name}</h2>
+                <p class="font-light">{member.role}</p>
+                <hr class="w-1/4 " />
+                <p class="text-xs font-light">{member.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Layout>

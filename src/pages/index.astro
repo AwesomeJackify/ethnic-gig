@@ -1,4 +1,6 @@
 ---
+import { getCollection } from "astro:content";
+
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import Sponsors from "../components/Sponsors";
@@ -7,45 +9,17 @@ import heroImg from "../assets/images/hero.jpg";
 import dressImg from "../assets/images/dress.jpg";
 import foodImg from "../assets/images/food.jpg";
 
-import sewingImg from "../assets/images/sewing.jpeg";
-import businessImg from "../assets/images/business.jpg";
-import playgroupImg from "../assets/images/playgroup.jpg";
-import gardenImg from "../assets/images/garden.jpg";
-
 import happyImg from "../assets/images/happy.jpg";
 import helpingImg from "../assets/images/helping.jpg";
 import smilesImg from "../assets/images/smiles.jpg";
 
-const programs = [
-  {
-    title: "Sewing School",
-    description:
-      "Offering free beginner and advanced sewing courses for women's skill development and employment opportunities.",
-    image: sewingImg,
-  },
-  {
-    title: "Business School",
-    description:
-      "Empowering immigrant women through skill-building and entrepreneurial ventures.",
-    image: businessImg,
-  },
-  {
-    title: "Playgroup",
-    description:
-      "Multilingual playgroup fostering early childhood development and cultural preservation.",
-    image: playgroupImg,
-  },
-  {
-    title: "Community Garden",
-    description:
-      "Cultivating sustainable living and community well-being through organic gardening for migrants and refugees.",
-    image: gardenImg,
-  },
-];
+import ProgramCard from "../components/ProgramCard.astro";
+
+const allPrograms = await getCollection("programs");
 ---
 
 <Layout title="NZ Ethnic Women's Trust">
-  <div class="flex gap-16 flex-col mt-8">
+  <div class="flex gap-20 flex-col">
     <section class="flex justify-between items-center gap-5 max-md:flex-col">
       <div>
         <p
@@ -69,9 +43,6 @@ const programs = [
         migrant and refugee women from various global regions. We aim to offer a
         secure space for women to voice their perspectives and provide services
         to enhance their skills and confidence for settling in New Zealand.
-        <br /> We offer various services such as English language classes,
-        health education and playgroup’s to promote bilingualism in our
-        community
       </p>
       <a
         href=""
@@ -88,15 +59,13 @@ const programs = [
     </section>
 
     <section
-      class="mx-auto h-[600px] max-md:h-fit relative max-w-5xl max-md:max-w-none w-full rounded-2xl"
+      class="mx-auto h-fit relative max-w-5xl max-md:max-w-none w-full rounded-2xl overflow-hidden"
     >
       <div
         class="absolute top-1/2 left-1/2 w-[95%] h-[95%] max-md:hidden -translate-y-1/2 -translate-x-1/2 -z-10"
       >
       </div>
-      <div
-        class="w-full h-full grid grid-cols-2 max-md:grid-cols-1 max-md:gap-8"
-      >
+      <div class="h-full grid grid-cols-2 max-md:grid-cols-1 max-md:gap-8">
         <h1
           class="text-5xl justify-self-center self-center max-md:text-6xl max-md:justify-self-start max-md:px-2"
         >
@@ -129,14 +98,12 @@ const programs = [
       </div>
     </section>
 
-    <section class="flex flex-col w-full items-center">
-      <h1
-        class="ml-8 text-5xl mb-4 self-start max-md:ml-0 max-md:text-center w-full"
-      >
+    <section class="flex flex-col items-center">
+      <h1 class="ml-8 text-5xl mb-4 self-start max-md:ml-0 max-md:text-center">
         Our Programs
       </h1>
       <h2
-        class="ml-8 text-2xl self-start w-full max-md:ml-0 max-md:text-center max-md:text-lg"
+        class="ml-8 text-2xl self-start max-md:ml-0 max-md:text-center max-md:text-lg"
       >
         We have various programs that we run year-round for the community.
       </h2>
@@ -144,40 +111,29 @@ const programs = [
         class="grid grid-cols-2 max-md:grid-cols-1 gap-10 max-w-screen-lg mt-8"
       >
         {
-          programs.map((program) => (
-            <>
-              <a
-                href=""
-                class="card w-full md:w-96 bg-base-100 shadow-xl hover:scale-105 max-md:hover:scale-100 hover:cursor-pointer transition"
-              >
-                <figure>
-                  <Image
-                    src={program.image}
-                    alt={program.title}
-                    width={400}
-                    class="h-64 object-cover"
-                  />
-                </figure>
-                <div class="card-body">
-                  <h2 class="card-title">
-                    {program.title}
-                    <div class="badge badge-secondary">NEW</div>
-                  </h2>
-                  <p>{program.description}</p>
-                </div>
-              </a>
-            </>
-          ))
+          allPrograms.map((program) => {
+            return (
+              program.data.showOnHomepage && (
+                <ProgramCard
+                  title={program.data.title}
+                  description={program.data.description}
+                  image={program.data.image}
+                  hasBadge={program.data.hasBadge}
+                  url={`/programs/${program.slug}`}
+                />
+              )
+            );
+          })
         }
       </div>
-      <a href="" class="btn btn-primary rounded-none text-2xl w-fit mt-8"
+      <a
+        href="/programs"
+        class="btn btn-primary rounded-none text-2xl w-fit mt-8"
         >See All Our Programs</a
       >
     </section>
     <section>
-      <h1
-        class="ml-8 text-5xl mb-8 self-start max-md:ml-0 max-md:text-center w-full"
-      >
+      <h1 class="ml-8 text-5xl mb-8 self-start max-md:ml-0 max-md:text-center">
         Lend a Hand, Make a Difference
       </h1>
       <h2
@@ -187,7 +143,9 @@ const programs = [
         financially, whatever suits you best. Every little bit counts and is
         much appreciated.
       </h2>
-      <div class="grid grid-cols-3 max-md:grid-cols-1 place-items-center max-w-5xl mx-auto gap-8 mt-8">
+      <div
+        class="grid grid-cols-3 max-md:grid-cols-1 place-items-center max-w-5xl mx-auto gap-8 mt-8"
+      >
         <Image
           src={happyImg}
           alt="Happy"

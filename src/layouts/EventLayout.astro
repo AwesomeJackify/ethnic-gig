@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+import Layout from "@layouts/Layout.astro";
+import { Icon } from "astro-icon";
+import FormattedDate from "@components/FormattedDate.astro";
+import FormattedTime from "@components/FormattedTime.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+  <div class="mt-10">
+    <div class="mx-auto">
+      <Image
+        src={frontmatter.image}
+        alt={frontmatter.title}
+        width={400}
+        class="mx-auto rounded-2xl object-cover"
+      />
+      <div class="max-w-2xl mx-auto flex flex-col gap-6 mt-10">
+        <ul class="list-none text-base flex flex-col gap-2">
+          <li class="flex items-center gap-2">
+            <Icon pack="mdi" name="calendar" width={25} />
+            <FormattedDate date={frontmatter.date} />
+          </li>
+          <li class="flex items-center gap-2">
+            <Icon pack="mdi" name="clock" width={25} />
+            <FormattedTime date={frontmatter.date} />
+          </li>
+          <li class="flex items-center gap-2">
+            <Icon pack="mdi" name="house" width={25} />
+            {frontmatter.address}
+          </li>
+        </ul>
+        <div class="prose">
+          <slot />
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

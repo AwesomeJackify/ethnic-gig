@@ -1,0 +1,78 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import ProgramCard from "@components/ProgramCard.astro";
+
+const allEvents = await getCollection("events");
+const currentDate = new Date();
+
+const pastEvents = allEvents.filter((event) => {
+  const eventDate = new Date(event.data.date);
+  return eventDate <= currentDate;
+});
+
+const upcomingEvents = allEvents.filter((event) => {
+  const eventDate = new Date(event.data.date);
+  return eventDate > currentDate;
+});
+---
+
+<Layout title="Events">
+  <h1 class="text-5xl mb-4 self-start max-md:ml-0 text-center w-full my-10">
+    Check out all our events
+  </h1>
+  <div
+    class="flex flex-col items-center mt-20 max-md:mt-8 gap-20 max-md:gap-10"
+  >
+    <div>
+      <h1 class="text-2xl lg:text-4xl text-center">Upcoming events</h1>
+      {
+        upcomingEvents.length === 0 && (
+          <p class="text-center mt-4">No upcoming events</p>
+        )
+      }
+      <div
+        class="grid grid-cols-2 max-md:grid-cols-1 gap-10 max-w-screen-lg mt-8"
+      >
+        {
+          upcomingEvents.map((event) => {
+            return (
+              <ProgramCard
+                title={event.data.title}
+                description={event.data.description}
+                image={event.data.image}
+                hasBadge={event.data.hasBadge}
+                url={`/events/${event.slug}`}
+              />
+            );
+          })
+        }
+      </div>
+    </div>
+    <div>
+      <h1 class="text-2xl lg:text-4xl text-center">Past events</h1>
+      {
+        pastEvents.length === 0 && (
+          <p class="text-center mt-4">No past events</p>
+        )
+      }
+      <div
+        class="grid grid-cols-2 max-md:grid-cols-1 gap-10 max-w-screen-lg mt-8 opacity-75"
+      >
+        {
+          pastEvents.map((event) => {
+            return (
+              <ProgramCard
+                title={event.data.title}
+                description={event.data.description}
+                image={event.data.image}
+                hasBadge={event.data.hasBadge}
+                url={`/events/${event.slug}`}
+              />
+            );
+          })
+        }
+      </div>
+    </div>
+  </div>
+</Layout>
