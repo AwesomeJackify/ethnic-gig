@@ -1,0 +1,69 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import helpingImg from "../assets/images/helping.jpg";
+---
+
+<Layout title="Donate">
+  <div class="flex gap-20 flex-col max-md:gap-10">
+    <h1 class="text-center text-6xl max-md:text-4xl">Donate Today</h1>
+    <Image
+      src={helpingImg}
+      alt="Helping"
+      class="rounded-2xl mx-auto"
+      width={500}
+    />
+    <h2 class="text-2xl max-md:text-xl">
+      We are a non-profit organisation and we rely on donations to keep our
+      services running. Any amount of donations helps us immensely.
+    </h2>
+
+    <h2 class="text-4xl max-md:text-2xl font-bold text-center">
+      How Your Contribution Helps
+    </h2>
+
+    <ul class="list-disc list-inside text-xl max-md:text-lg text-center">
+      <li>Supporting local educational initiatives</li>
+      <li>Funding community health and wellness programs.</li>
+      <li>Aiding the community and women from third-world countries.</li>
+      <li>Providing essential services to the underprivileged and needy.</li>
+    </ul>
+
+    <h2 class="text-4xl max-md:text-2xl font-bold text-center">
+      How to Donate
+    </h2>
+    <div class="flex flex-col gap-8">
+      <div class="collapse collapse-plus bg-base-200">
+        <input type="radio" name="my-accordion-3" checked="checked" />
+        <div class="collapse-title text-xl font-bold">
+          Donate Through Bank Transfer
+        </div>
+        <div class="collapse-content">
+          <p>hello</p>
+        </div>
+      </div>
+      <div class="collapse collapse-plus bg-base-200">
+        <input type="radio" name="my-accordion-3" />
+        <div class="collapse-title text-xl font-bold">Donate With Card</div>
+        <div class="collapse-content">
+          <p>hello</p>
+        </div>
+      </div>
+    </div>
+
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLScpVJOajjfFrJFUtVF184Y_7hjSEf_sVfrkqg9lFguNAqUl1A/viewform"
+      class="btn btn-primary rounded-none text-2xl w-fit mx-auto"
+      target="_blank">Register now</a
+    >
+
+    <p class="text-xl max-md:text-lg my-5">
+      For more information on how you can contribute, please contact us at <a
+        class="text-primary font-bold"
+        href="mailto:info@nzethnicwomen.org">info@nzethnicwomen.org</a
+      > or call us at <a class="text-primary font-bold" href="tel:+640212146247"
+        >021 214 6247</a
+      >. We are grateful for your support in making a difference!
+    </p>
+  </div>
+</Layout>
