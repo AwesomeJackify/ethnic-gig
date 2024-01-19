@@ -1,0 +1,28 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import helpingImg from "../assets/images/helping.jpg";
+---
+
+<Layout title="About Us">
+  <div class="flex gap-20 flex-col max-md:gap-10">
+    <h1 class="text-center text-6xl max-md:text-4xl">Volunteer Today</h1>
+    <Image
+      src={helpingImg}
+      alt="Helping"
+      class="rounded-2xl mx-auto"
+      width={500}
+    />
+    <h2 class="text-2xl max-md:text-xl">
+      The backbone of our organisation is our volunteers, many of whom have been
+      with us for years. If you've been looking for a place where you can use
+      your skills, expertise and experience for the betterment of your local
+      community, Please register if you would like to volunteer with us.
+    </h2>
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLScpVJOajjfFrJFUtVF184Y_7hjSEf_sVfrkqg9lFguNAqUl1A/viewform"
+      class="btn btn-primary rounded-none text-2xl w-fit mx-auto"
+      target="_blank">Register now</a
+    >
+  </div>
+</Layout>
