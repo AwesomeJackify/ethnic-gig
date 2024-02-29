@@ -1,0 +1,35 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+---
+
+<Layout title="Contact us">
+  <div class="flex gap-20 flex-col max-md:gap-10">
+    <h1 class="text-center text-6xl max-md:text-4xl">Contact</h1>
+    <div class="flex flex-col gap-10">
+      <div class="flex items-center text-2xl flex-col gap-4">
+        <h1>Call us</h1>
+        <div class="flex gap-4">
+          <a class="text-primary" href="tel:+64212146247">021 214 6247</a>
+          <a class="text-primary" href="tel:+64220380826">022 038 0826</a>
+        </div>
+      </div>
+      <div class="flex items-center text-2xl flex-col gap-4">
+        <h1>Email</h1>
+        <div class="flex gap-4 flex-col">
+          <a class="text-primary" href="mailto:info@nzethnicwomen.org"
+            >info@nzethnicwomen.org</a
+          >
+          <a class="text-primary" href="mailto:admin@nzethnicwomen.org"
+            >admin@nzethnicwomen.org</a
+          >
+        </div>
+      </div>
+      <div class="text-2xl text-center max-md:text-xl">
+        <h2 class="">If you need immediate help, please call us.</h2>
+        <h2 class="mt-8 font-bold">Working hours</h2>
+        <h2 class="mt-4">Monday - Friday : 9:00AM - 4:00PM</h2>
+      </div>
+    </div>
+  </div>
+</Layout>
