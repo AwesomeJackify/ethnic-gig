@@ -1,6 +1,6 @@
 import logo from "../assets/images/logo.png";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface Props {
   pages: NavItem[];
@@ -14,7 +14,9 @@ const Header = ({ pages }: Props) => {
   };
 
   return (
-    <div className="mb-10 max-md:mb-4">
+    <div
+      className={`sticky top-0 left-0 w-full z-50 bg-base-100 mb-8 rounded-sm  `}
+    >
       <div className="w-full flex justify-between items-center p-10 max-md:p-4 max-md:flex-col gap-6">
         <div className="flex justify-between w-full items-center">
           <a href="/" className="btn btn-ghost p-4 h-fit">
