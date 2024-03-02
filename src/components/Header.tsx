@@ -43,7 +43,7 @@ const Header = ({ pages }: Props) => {
 
         <a
           href="/donate"
-          className="btn btn-primary rounded-none text-2xl w-fit"
+          className="btn btn-primary hidden md:flex rounded-none text-2xl w-fit"
         >
           Donate Today
         </a>
@@ -58,7 +58,14 @@ const Header = ({ pages }: Props) => {
         >
           {pages.map((page, index) => (
             <li key={index}>
-              <a href={page.url}>{page.name}</a>
+              {page.name !== "Donate" && ( // Hide "donate" link by default
+                <a href={page.url}>{page.name}</a>
+              )}
+              {page.name === "Donate" && ( // Show "donate" link only on larger screens
+                <a href={page.url} className="block md:hidden">
+                  {page.name}
+                </a>
+              )}
             </li>
           ))}
         </ul>
