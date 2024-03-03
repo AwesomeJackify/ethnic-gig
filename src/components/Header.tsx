@@ -1,6 +1,6 @@
 import logo from "../assets/images/logo.png";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface Props {
   pages: NavItem[];
@@ -14,14 +14,16 @@ const Header = ({ pages }: Props) => {
   };
 
   return (
-    <div className="mb-10 max-md:mb-4">
-      <div className="w-full flex justify-between items-center p-10 max-md:p-4 max-md:flex-col gap-6">
+    <div
+      className={`sticky top-0 left-0 w-full z-50 bg-base-100 mb-8 rounded-sm `}
+    >
+      <div className="w-full flex justify-between items-center p-4 max-md:p-4 max-md:flex-col gap-6">
         <div className="flex justify-between w-full items-center">
           <a href="/" className="btn btn-ghost p-4 h-fit">
             <img
               src={logo.src}
-              alt="logo"
-              width={500}
+              alt="Logo of NZ Ethnic Women's Trust"
+              width={350}
               className="max-md:w-60"
             />
           </a>
@@ -41,7 +43,7 @@ const Header = ({ pages }: Props) => {
 
         <a
           href="/donate"
-          className="btn btn-primary rounded-none text-2xl w-fit"
+          className="btn btn-primary hidden md:flex rounded-none text-2xl w-fit"
         >
           Donate Today
         </a>
@@ -56,11 +58,19 @@ const Header = ({ pages }: Props) => {
         >
           {pages.map((page, index) => (
             <li key={index}>
-              <a href={page.url}>{page.name}</a>
+              {page.name !== "Donate" && ( // Hide "donate" link by default
+                <a href={page.url}>{page.name}</a>
+              )}
+              {page.name === "Donate" && ( // Show "donate" link only on larger screens
+                <a href={page.url} className="block md:hidden">
+                  {page.name}
+                </a>
+              )}
             </li>
           ))}
         </ul>
       </div>
+      <div className=" opacity-20 rounded-md h-1 shadow-xl bg-gray-300 "></div>
     </div>
   );
 };
