@@ -11,7 +11,7 @@ const { frontmatter } = Astro.props;
         src={frontmatter.image}
         alt={frontmatter.title}
         width={700}
-        class="mx-auto rounded-2xl aspect-square object-cover"
+        class="mx-auto max-h-96 rounded-2xl object-cover"
       />
       <slot />
       <a
