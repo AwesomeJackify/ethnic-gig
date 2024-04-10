@@ -20,25 +20,15 @@ const allPrograms = await getCollection("programs");
 
 <Layout title="NZ Ethnic Women's Trust">
   <div class="flex gap-20 flex-col">
-    <section class="flex justify-between items-center gap-5 max-md:flex-col">
-      <div>
-        <p
-          class="text-5xl mx-auto font-bold leading-tight max-lg:leading-relaxed max-2xl:text-4xl max-lg:text-3xl"
-        >
-          Our mission is to provide a safe place where women can express their
-          views freely in a supportive environment.
-        </p>
-      </div>
-      <Image
-        src={heroImg}
-        alt="hero"
-        width={750}
-        class="rounded-xl max-lg:w-96"
-        loading={"eager"}
-      />
-    </section>
-
-    <section class="p-8 flex flex-col items-center gap-8">
+    <section class="flex justify-between items-center gap-5 flex-col">
+      <iframe
+        class="w-full sm:h-[32rem] h-96"
+        src="https://www.youtube.com/embed/l6xWDArS1ao?si=E8KKCpwp7gPejixa"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
       <p class="text-4xl leading-tight max-md:text-lg">
         The New Zealand Ethnic Women's Trust is a <b>non-profit</b> led by
         migrant and refugee women from various global regions. We aim to offer a
@@ -51,6 +41,8 @@ const allPrograms = await getCollection("programs");
         >Learn more about us</a
       >
     </section>
+
+    <section class="p-8 flex flex-col items-center gap-8"></section>
 
     <section>
       <h1 class="ml-8 text-5xl mb-16 max-md:ml-0 max-md:text-center">
