@@ -14,9 +14,7 @@ const Header = ({ pages }: Props) => {
   };
 
   return (
-    <div
-      className={`sticky top-0 left-0 w-full z-50 bg-base-100 mb-8 rounded-sm `}
-    >
+    <div className={`top-0 left-0 w-full z-50 bg-base-100 mb-8 rounded-sm `}>
       <div className="w-full flex justify-between items-center p-4 max-md:p-4 max-md:flex-col gap-6">
         <div className="flex justify-between w-full items-center">
           <a href="/" className="btn btn-ghost p-4 h-fit">
@@ -70,7 +68,7 @@ const Header = ({ pages }: Props) => {
           ))}
         </ul>
       </div>
-      <div className=" opacity-20 rounded-md h-1 shadow-xl bg-gray-300 "></div>
+      {/* <div className=" opacity-20 rounded-md h-1 shadow-xl bg-gray-300 "></div> */}
     </div>
   );
 };
