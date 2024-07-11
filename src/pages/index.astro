@@ -15,6 +15,8 @@ import smilesImg from "../assets/images/smiles.jpg";
 
 import ProgramCard from "../components/ProgramCard.astro";
 
+import Icon from "astro-icon";
+
 const allPrograms = await getCollection("programs");
 ---
 
@@ -122,6 +124,37 @@ const allPrograms = await getCollection("programs");
       </div>
     </section>
 
+    <section class="my-6 w-full flex flex-col items-center">
+      <div class="carousel carousel-center w-full h-96 space-x-4">
+        <div class="carousel-item">
+          <Image
+            src={happyImg}
+            alt="Happy"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div class="carousel-item">
+          <Image
+            src={helpingImg}
+            alt="Helping"
+            class="w-full h-full object-cover"
+          />
+        </div>
+        <div class="carousel-item">
+          <Image
+            src={smilesImg}
+            alt="Smiles"
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+      <a
+        href="/gallery"
+        class="btn btn-primary rounded-none text-2xl w-fit mt-8"
+        >See all our photos</a
+      >
+    </section>
+
     <section>
       <h1 class="ml-8 text-5xl mb-8 self-start max-md:ml-0 max-md:text-center">
         Lend a Hand, Make a Difference
@@ -133,28 +166,7 @@ const allPrograms = await getCollection("programs");
         financially, whatever suits you best. Every little bit counts and is
         much appreciated.
       </h2>
-      <div
-        class="grid grid-cols-3 max-md:grid-cols-1 place-items-center max-w-5xl mx-auto gap-8 mt-8"
-      >
-        <Image
-          src={happyImg}
-          alt="Happy"
-          width={400}
-          class="rounded-2xl h-full object-cover max-md:hidden"
-        />
-        <Image
-          src={helpingImg}
-          alt="Helping"
-          width={400}
-          class="rounded-2xl h-full object-cover max-md:hidden"
-        />
-        <Image
-          src={smilesImg}
-          alt="Smiles"
-          width={400}
-          class="rounded-2xl h-full object-cover"
-        />
-      </div>
+
       <div class="flex justify-center gap-8 mt-8 items-center max-md:gap-5">
         <a
           href="/volunteer"
