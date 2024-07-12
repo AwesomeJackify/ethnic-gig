@@ -9,7 +9,10 @@ export default defineConfig({
   integrations: [tailwind(), react(), mdx()],
   vite: {
     ssr: {
-      noExternal: ["react-icons"]
-    }
-  }
+      noExternal: ["react-icons"],
+    },
+  },
+  redirects: {
+    "/gallery": "/gallery/1",
+  },
 });
