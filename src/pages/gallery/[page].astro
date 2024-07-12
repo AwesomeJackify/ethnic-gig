@@ -63,9 +63,12 @@ for (let i = startIndex; i < endIndex; i++) {
 
 <Layout title="Gallery">
   <section class="flex flex-col gap-16 max-md:gap-8 items-center">
-    <h1 class="text-5xl mb-4 self-start max-md:ml-0 text-center w-full my-10">
-      Our Gallery
-    </h1>
+    <div class="flex flex-col items-center">
+      <h1 class="text-5xl mb-4 self-start max-md:ml-0 text-center w-full my-10">
+        Our Gallery
+      </h1>
+      <h2 class="text-lg">Page {page.currentPage}</h2>
+    </div>
     <div class="grid grid-cols-5 gap-4 place-items-center max-md:grid-cols-1">
       {
        imagePaths.map((imagePath, index) => (
