@@ -101,8 +101,8 @@ for (let i = startIndex; i < endIndex; i++) {
       }
     </div>
     <div class="w-full flex justify-between">
-      {page.url.prev ? <a href={page.url.prev} class="btn btn-lg btn-secondary">Previous</a> : null}
-       {page.url.next ? <a href={page.url.next} class="btn btn-lg btn-secondary">Next</a> : null}
+      {page.url.prev ? <a href={page.url.prev} class="btn btn-lg btn-secondary">Previous</a> : <div></div>}
+       {page.url.next ? <a href={page.url.next} class="btn btn-lg btn-secondary">Next</a> : <div></div>}
     </div>
     
    
